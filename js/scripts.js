@@ -26,6 +26,17 @@ AddressBook.prototype.findContact = function(id) {
   return false;
 };
 
+//Business Logic for deleting a contacts
+AddressBook.prototype.deleteContact = function(id) {
+  for (var i=0; i< this.contacts.length; i++) {
+    if (this.contacts[i].id == id) {
+      delete this.contacts[i];
+      return true;
+    }
+  }
+  return false;
+};
+
 //Business Logic for Contacts
 function Contact(firstName, lastName, phoneNumber) {
   this.firstName = firstName,
