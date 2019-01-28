@@ -19,8 +19,10 @@ AddressBook.prototype.assignId = function() {
 //Business Logic for finding a contact
 AddressBook.prototype.findContact = function(id) {
   for (var i=0; i< this.contacts.length; i++) {
-    if (this.contacts[i].id == id) {
+    if (this.contacts[i]) {
+      if (this.contacts[i].id == id) {
       return this.contacts[i];
+      }
     }
   }
   return false;
@@ -29,9 +31,11 @@ AddressBook.prototype.findContact = function(id) {
 //Business Logic for deleting a contacts
 AddressBook.prototype.deleteContact = function(id) {
   for (var i=0; i< this.contacts.length; i++) {
-    if (this.contacts[i].id == id) {
-      delete this.contacts[i];
-      return true;
+    if (this.contacts[i]) {
+      if (this.contacts[i].id == id) {
+        delete this.contacts[i];
+        return true;
+      }
     }
   }
   return false;
